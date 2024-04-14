@@ -18,8 +18,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'TypedIconComponent',
-      fileName: 'typed-icon-component',
+      name: 'TypedIconTemplate',
+      fileName: 'typed-icon-template',
       formats: ['es', 'cjs', 'umd', 'iife'],
     },
   },
