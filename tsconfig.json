@@ -1,0 +1,26 @@
+{
+  "module": "esnext",
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "outDir": "./build",
+    "target": "esnext",
+    "module": "esnext",
+    "newLine": "lf",
+    "jsx": "preserve",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "rootDirs": [
+      "./*"
+    ],
+    "typeRoots": [
+      "types"
+    ],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+  },
+
+  "exclude": ["node_modules"]
+}

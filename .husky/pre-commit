@@ -1,0 +1,4 @@
+pnpm type-check
+pnpm prettier
+pnpm lint
+pnpm unit
