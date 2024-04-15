@@ -42,7 +42,7 @@
     "unit": "vitest run"
   },
   "peerDependencies": {
-    "vite": ">=5.0.0"
+    "vite": ">=4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
