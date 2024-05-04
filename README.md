@@ -35,12 +35,12 @@ export default defineConfig({
 
 ## API
 
-- generateTypes(options)
-  - options:
-    - iconsPath: string - Путь до svg спрайтов.
-    - iconComponentPath: string - Путь до компонента.
-    - fileName?: string - Имя файла.
-      - default - `icon-names.types.ts`
+| Метод           | Параметры                                            | Описание                                   |
+| --------------- | ---------------------------------------------------- | ------------------------------------------ |
+| typedIconPlugin | options                                              | Плагин для создания типизированных иконок. |
+|                 | - iconsPath: string                                  | Путь до svg спрайтов.                      |
+|                 | - iconComponentPath: string                          | Путь до компонента.                        |
+|                 | - fileName?: string (default: `icon-names.types.ts`) | Имя файла.                                 |
 
 ## TODO:
 
