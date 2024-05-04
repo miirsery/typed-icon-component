@@ -1,2 +1,2 @@
-export { generateTypes } from './generate'
+export { typedIconPlugin } from './generate'
 export * from './types'

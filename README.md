@@ -20,12 +20,12 @@ pnpm add typed-icon-template -D
 - Конфигурация в файле **vite.config.ts**
 
 ```ts
-import { generateTypes } from 'typed-icon-template'
+import { typedIconPlugin } from 'typed-icon-template'
 import path from 'path'
 
 export default defineConfig({
   plugins: [
-    generateTypes({
+    typedIconPlugin({
       iconsPath: path.join(process.cwd(), 'src', 'icons'),
       iconComponentPath: path.resolve(process.cwd(), 'src', 'IconTemplate'),
     }),
@@ -35,12 +35,12 @@ export default defineConfig({
 
 ## API
 
-- generateTypes(options)
-  - options:
-    - iconsPath: string - Путь до svg спрайтов.
-    - iconComponentPath: string - Путь до компонента.
-    - fileName?: string - Имя файла.
-      - default - `icon-names.types.ts`
+| Метод           | Параметры                                            | Описание                                   |
+| --------------- | ---------------------------------------------------- | ------------------------------------------ |
+| typedIconPlugin | options                                              | Плагин для создания типизированных иконок. |
+|                 | - iconsPath: string                                  | Путь до svg спрайтов.                      |
+|                 | - iconComponentPath: string                          | Путь до компонента.                        |
+|                 | - fileName?: string (default: `icon-names.types.ts`) | Имя файла.                                 |
 
 ## TODO:
 

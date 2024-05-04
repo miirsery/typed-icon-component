@@ -3,29 +3,6 @@ const fs = require('fs')
 const path = require('path')
 
 import { GenerateTypesOptions } from './types'
-/**
- * Генерирует TypeScript типы для имен иконок на основе SVG файлов, присутствующих в указанном пути к иконкам.
- * Эта функция отслеживает изменения в пути к иконкам и обновляет TypeScript типы соответственно.
- *
- * @param {GenerateTypesOptions} options - Параметры конфигурации для генерации типов.
- * @param {string} options.iconsPath - Путь к директории, содержащей SVG файлы иконок.
- * @param {string} [options.iconComponentPath] - Путь к директории, где должен быть сохранен сгенерированный файл TypeScript типов.
- * @param {string} [options.fileName='icon-names.types.ts'] - Имя сгенерированного файла TypeScript типов. По умолчанию 'icon-names.types.ts'.
- * @returns {Plugin} - Объект плагина, который может быть использован в Vite.
- */
-export const generateTypes = (options: GenerateTypesOptions): Plugin => {
-  const { iconsPath } = options
-
-  fs.watch(iconsPath, () => {
-    updateFileNames(options)
-  })
-
-  updateFileNames(options)
-
-  return {
-    name: 'vite:typed-icon-names',
-  }
-}
 
 /**
  * Обновляет имена файлов иконок и генерирует TypeScript типы для них.
@@ -73,4 +50,29 @@ const getSvgFileNames = (iconsPath: GenerateTypesOptions['iconsPath']): Array<st
   const svgFiles = files.filter((file) => path.extname(file) === '.svg')
 
   return svgFiles.map((file) => path.parse(file).name)
+}
+
+/**
+ * Генерирует TypeScript типы для имен иконок на основе SVG файлов, присутствующих в указанном пути к иконкам.
+ * Этот плагин отслеживает изменения в пути к иконкам и обновляет TypeScript типы соответственно.
+ *
+ * @param {GenerateTypesOptions} options - Параметры конфигурации для генерации типов.
+ * @param {string} options.iconsPath - Путь к директории, содержащей SVG файлы иконок.
+ * @param {string} [options.iconComponentPath] - Путь к директории, где должен быть сохранен сгенерированный файл TypeScript типов.
+ * @param {string} [options.fileName='icon-names.types.ts'] - Имя сгенерированного файла TypeScript типов. По умолчанию 'icon-names.types.ts'.
+ * @returns {Plugin} - Объект плагина, который может быть использован в Vite.
+ */
+export const typedIconPlugin = (options: GenerateTypesOptions): Plugin => {
+  const { iconsPath } = options
+
+  updateFileNames(options)
+
+  return {
+    name: 'vite:typed-icon-names',
+    configureServer() {
+      fs.watch(iconsPath, () => {
+        updateFileNames(options)
+      })
+    },
+  }
 }
