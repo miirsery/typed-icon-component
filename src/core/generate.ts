@@ -45,9 +45,22 @@ ${resultType}
  * @returns {Array<string>} - Массив имен SVG файлов без расширения.
  */
 const getSvgFileNames = (iconsPath: GenerateTypesOptions['iconsPath']): Array<string> => {
-  const files = fs.readdirSync(iconsPath) as string[]
+  const svgFiles: string[] = []
 
-  const svgFiles = files.filter((file) => path.extname(file) === '.svg')
+  const readDirRecursive = (dirPath: string) => {
+    const entries = fs.readdirSync(dirPath, { withFileTypes: true })
+
+    for (const entry of entries) {
+      const fullPath = path.join(dirPath, entry.name)
+      if (entry.isDirectory()) {
+        readDirRecursive(fullPath)
+      } else if (entry.isFile() && path.extname(entry.name) === '.svg') {
+        svgFiles.push(path.relative(iconsPath, fullPath).replace(/\\/g, '/'))
+      }
+    }
+  }
+
+  readDirRecursive(iconsPath)
 
   return svgFiles.map((file) => path.parse(file).name)
 }
