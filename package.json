@@ -2,7 +2,7 @@
   "name": "typed-icon-template",
   "description": "Vite Plugin for generate types by *.svg sprites",
   "author": "miirsery",
-  "private": true,
+  "private": false,
   "version": "0.0.8",
   "repository": {
     "type": "git",
