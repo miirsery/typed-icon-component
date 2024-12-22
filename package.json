@@ -3,7 +3,7 @@
   "description": "Vite Plugin for generate types by *.svg sprites",
   "author": "miirsery",
   "private": true,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "repository": {
     "type": "git",
     "url": "https://github.com/miirsery/typed-icon-component.git",
@@ -27,10 +27,22 @@
     "eslint-config-prettier": "^9.1.0",
     "happy-dom": "^13.6.2",
     "husky": "^9.0.11",
+    "lint-staged": "^15.2.11",
     "prettier": "^3.2.4",
     "typescript": "^5.2.2",
     "unbuild": "^3.0.1",
     "vite": "^5.1.4",
     "vitest": "^1.3.1"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "packages/*/{src,types}/**/*.ts": [
+      "eslint --ext .ts"
+    ],
+    "packages/**/*.d.ts": [
+      "eslint --ext .ts"
+    ]
   }
 }
