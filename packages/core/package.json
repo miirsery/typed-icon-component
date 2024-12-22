@@ -2,8 +2,22 @@
   "name": "typed-icon-template",
   "description": "Vite Plugin for generate types by *.svg sprites",
   "author": "miirsery",
-  "private": true,
   "version": "0.0.7",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/miirsery/typed-icon-component.git",
@@ -14,23 +28,15 @@
   },
   "homepage": "https://github.com/miirsery/typed-icon-component.git/tree/master/#readme",
   "scripts": {
-    "test": "vitest"
+    "dev": "pnpm unbuild --stub",
+    "build": "pnpm unbuild",
+    "prepublishOnly": "npm run build",
+    "prepack": "pnpm unbuild"
   },
   "peerDependencies": {
     "vite": ">=4.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "eslint": "^8.56.0",
-    "eslint-config-prettier": "^9.1.0",
-    "happy-dom": "^13.6.2",
-    "husky": "^9.0.11",
-    "prettier": "^3.2.4",
-    "typescript": "^5.2.2",
-    "unbuild": "^3.0.1",
-    "vite": "^5.1.4",
-    "vitest": "^1.3.1"
+    "@types/node": "^20.12.7"
   }
 }

@@ -1,6 +1,6 @@
 import { Plugin } from 'vite'
-const fs = require('fs')
-const path = require('path')
+import fs  from 'fs'
+import path  from 'path'
 
 import { GenerateTypesOptions } from './types'
 
