@@ -6,8 +6,7 @@
   "version": "0.0.8",
   "repository": {
     "type": "git",
-    "url": "https://github.com/miirsery/typed-icon-component.git",
-    "directory": "src/core"
+    "url": "https://github.com/miirsery/typed-icon-component.git"
   },
   "bugs": {
     "url": "https://github.com/miirsery/typed-icon-component.git/issues"

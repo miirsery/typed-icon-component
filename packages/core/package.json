@@ -3,7 +3,6 @@
   "description": "Vite Plugin for generate types by *.svg sprites",
   "author": "miirsery",
   "version": "0.0.7",
-  "type": "module",
   "files": [
     "dist"
   ],
@@ -21,7 +20,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/miirsery/typed-icon-component.git",
-    "directory": "src/core"
+    "directory": "packages/core"
   },
   "bugs": {
     "url": "https://github.com/miirsery/typed-icon-component.git/issues"
